@@ -1,0 +1,22 @@
+// to check prime number
+#include<math.h>
+void main()
+{
+int n,i,root;
+clrscr();
+printf("enter a nnumber");
+scanf("%d",&n);
+root = sqrt(n);
+for(i=2;i<=root;i++)
+{
+  if(n%i==0)
+   {
+     printf("its not prime number");
+     break;
+   }
+}
+if(i>root)
+{ printf("its prime number");
+}
+getch();
+}
