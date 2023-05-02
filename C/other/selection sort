@@ -1,0 +1,72 @@
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+int a[5];
+int mimimum(int[],int,int);
+void inputarray(int[],int);
+void outputarray(int[],int);
+void selectionsort(int[],int);
+clrscr();
+inputarray(a,5);
+selectionsort(a,5);
+outputarray(a,5);
+
+getch();
+
+}
+ void selectionsort(int a[],int n)
+ {
+ int i,mini,temp;
+ for(i=0;i<n-1;i++)
+ {
+ mini=minimum(a,i,n);
+ if(i!=mini)
+	{
+	temp=a[i];
+	a[i]=a[mini];
+	a[mini]=temp;
+	}
+ }
+ }
+
+ int minimum(int a[],int beg,int n)
+ {
+ int min,index,i;
+ min=a[beg];
+ index=beg;
+ for(i=beg+1;i<n;i++)
+	{
+	if(min>a[i])
+	{
+	min=a[i];
+	index=i;
+	}
+	}
+	return index;
+ }
+ void inputarray(int a[],int n)
+ {
+ int i;
+ printf("Input array\n ");
+ for(i=0;i<n;i++)
+	{
+	printf("Enter %d element",i+1);
+	scanf("%d",&a[i]);
+	}
+ }
+
+  void outputarray(int a[],int n)
+  {
+  int i;
+  for(i=0;i<n;i++)
+	{
+	printf("%d\t",a[i]);
+	}
+
+  }
+
+
+
+
