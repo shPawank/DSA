@@ -1,0 +1,96 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+struct node
+{
+int info;
+struct node *type;
+};
+struct node *head=NULL;
+
+void main()
+{
+
+     void insertion(struct node **head,int item);
+     void print(struct node *head);
+     void end(struct node **head,int item);
+     int searchnode(struct node *head,int key);
+     clrscr();
+     insertion(&head,10);
+     insertion(&head,20);
+     insertion(&head,30);
+     end(&head,40) ;
+     if(searchnode(head,20)==1)
+     printf("search found" );
+     else
+     printf("serch not found");
+     print(head);
+     getch();
+
+}
+
+void insertion(struct node **head,int item)
+{
+struct node *newnode=(struct node *)malloc(sizeof(struct node));
+newnode->info=item;
+newnode->type=*head;
+*head=newnode;
+}
+void print(struct node *head)
+{
+struct node *temp= head;
+while (temp!=NULL)
+{
+printf("%d",temp->info);
+temp=temp->type;
+}
+printf("/n");
+}
+void end(struct node **head,int item)
+{
+struct node *newnode=malloc(sizeof(struct node));
+newnode->info=item;
+newnode->type=NULL;
+if(*head == NULL)
+*head=newnode;
+else
+{
+struct node *lastnode= *head;
+while(lastnode->type!=NULL)
+{
+lastnode= lastnode->type;
+}
+lastnode->type=newnode;
+}
+}
+int searchnode(struct node *head,int key)
+{
+struct node *temp=head;
+while(temp!=NULL)
+{
+if(temp->info==key)
+return 1;
+temp = temp->type;
+}
+return -1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
