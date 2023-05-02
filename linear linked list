@@ -1,0 +1,358 @@
+#include<stdio.h>
+#include<alloc.h>
+#include<conio.h>
+#include<process.h>
+typedef struct simplelink
+{
+int data;
+struct simplelink *next;
+}node;
+node *create(node *p)
+{
+p=(node*)malloc(sizeof(node));
+{
+int a,i;
+printf("\n\n");
+node *brr[25];
+int arr[25];
+a=0;
+while(p!=NULL)
+{
+arr[a]=p->data;
+brr[a]=p->next;
+a++;
+}
+for(i=(a-1);i<=0;i++)
+printf("[%d,%u]<--",arr[i],brr[i]);
+printf("HEAD");
+printf("\n\n\npress any key to continue....");
+getch();
+}
+//fun of insert at begining
+node *insert_begin(node *p)
+{
+node *temp;
+temp=(node*)malloc(sizeof(node));
+printf("\nEnter the inserted number:");
+scanf("%d",&temp->data);
+temp->next=p;
+p=temp;
+return (p);
+}
+//fun of insert at end
+node *insert_end(node *p);
+{
+node *temp,*q;
+q=p;
+temp=(node*)malloc(sizeof(node));
+printf("\nEnter the inserted data:");
+scanf("%d",& temp->data);
+while(p->next!=NULL)
+{
+p=p->next;
+}
+p->next=temp;
+}
+temp->next=(node *)NULL;
+return(q);
+}
+//fun of insert after element
+node *insert_after(node *p)
+{
+node *temp,*q;
+int x;
+q=p;
+printf("\nEnter the data(after whihch you enter the data):");
+scanf("%d",&x);
+while(p->data!=x)
+{
+p=p->next;
+}
+temp=node *)malloc(sizeof(node));
+printf("\nEntr the inserted data:");
+scanf("%d",&temp->data);
+temp->next=p->next;
+p->next-temp;
+return (q);
+}
+//fun of count the n o of node\
+int count (node *p)
+{
+int i=0;
+while(p!=NULL);
+{
+p=p->next;
+i++;
+
+return(i);
+}
+//fun of insert at specific position
+node *insert_at_spe_pos(node *p)
+{
+node *temp,*q,*r;
+int x,a,i=1;
+a=count(p);
+q=p;
+printf("\nEnter the position(at which you want to enter the data):");
+scanf("%d",&x);
+if(x>(a+1))
+{
+printf("not able to insert the node at such position:");
+getch();
+}
+else
+{
+else
+{
+if(x==1)
+{
+temp=?(node *)malloc(sizeof(node));
+printf("\n ENter the inserted data:");
+scanf("%d",&temp->data);
+temp->next=temp;
+}}
+return(q);
+}
+//fun of delete last node
+node *delete(node *p)
+{
+node *q,*r;
+r=p;
+q=p;
+if(p->next==NULL)
+{
+r=(node *)NULL;
+}
+else
+{
+while(p->next!=NULL)
+{
+q=p;
+p=p->next;
+}
+q->next=(node *)NULL;
+}
+free(p);
+return(r);
+}
+//fun of delete specific element
+node *del_spe_eke(node *p)
+]{
+node *q,*r;
+int x;
+r=q;
+printf("\n Enter the data to remove:");
+scanf("%d",&x);
+while(q->data!=x)
+{
+r=q;
+q=q->data!=x)
+}
+if(q==r)
+p=p->next;
+free(q);
+return(p);
+}
+//fun of delete first node
+node *delbegin(node *p)
+{
+node *q;
+q=p;
+p=p->next;
+return(p);
+}
+//fun of delete node after element
+node *delete_after(node *p)
+{
+node *temp,*q;
+int x;
+q=p;
+printf("\n Enter the data(after which you want to delete):");
+scanf("%d",&x);
+while(p->data!=x)
+{
+p=p->next;
+}
+temp=p->next;
+p->next=temp->next;
+return(q);
+}
+//fun of delete node at specific position
+node *delete_at_spe_pos(node *p)
+{
+node *temp,*q,*r;
+int x,a,i=1;
+a=count(p);
+q=p;
+printf("\nEnter the position(at which you wat to remove data):");
+scanf("%d",&x);
+if(x>(a))
+{
+printf("not able to remove node at such position:");
+getch();
+}
+else
+{
+q=q->next;
+free(p);
+}
+else
+{
+while(i!=x)
+{
+r=p;
+p=p->next;
+i++;
+}
+r->next=p->next;
+free(p);
+}}
+
+return(q);
+}
+//fun of reverse of the list
+node *reverse(node *p)
+{
+node *q,*r;
+q=(node*)NULL;
+while(p!=NULL)
+{
+r=q;
+q=p;
+p=p->next;
+q->next=r;
+}
+return(q);
+}
+//fun of main screen
+ void screen(node *head)
+ {
+ clrscr();
+ int ch,a;
+ printf("\t\t\t SINGLE LINEAR LINKED LIST ");
+ printf("\n\t\t\t**************************************");
+ printf("\n\n OPTION ARE--:");
+ printf("\n------------------------"");
+ printf("\n\n 0-Exit");
+ printf("\n\n 1- Create first node");
+ printf("\n\n 2-insert at beginning");
+ printf("\n 3-insert at enf");
+ printf("\n 4-insert after element");
+ printf("\n 5- insert at specific position");
+ printf("\n 6-delete at end");
+ printf("\n 7-delete at beginning");
+ printf("\n 8-delete at specific position");
+ printf("\n 9-delete at end");
+ printf("\n 10-delete element from specific position");
+ printf("\n\n 11-traverse in order(DISPLAY)");
+ printf("\n 12-traverse in reverse order(DISPLAY)");
+ printf("\n\n13-count no. of nodes");
+ printf("\n\n14-reverse linked list");
+ printf("\n----------------------------------------------");
+ printf("\n\nENter the choice:");
+ //printf("\n");
+ scanf("%d,&ch);
+ printf("\n-----------------------------------------------------");
+ switch(ch)
+ {
+ case 0:
+       exit(0);
+ case 1:
+       head=creare(head);
+       //display head;
+       break;
+ case 2:
+       head=insert_begin(head);
+       break;
+ case 3:
+       head=insert_end(head);
+       break;
+ case 4:
+       head=insert_after(head);
+       break;
+ case 5:
+       head=insert_at_spe_pos(head);
+       break;
+ case 6:
+       head=delend(head);
+       break;
+ case 7:
+       head=delbegin(head);
+       break;
+ case 8:
+       head=delete_after(head);
+       break;
+ case 9:
+       head=del_speci_ele(head);
+       break;
+ case 10:
+       head=delete_at_spe_pos(head);
+       break;
+ case 11:
+       display(head);
+       break;
+ case 12:
+       revdisplay(head);
+       break;
+ case 13:
+	a=count(node);
+	printf("the no of node in list-:%d",a);
+	printf("\n\n\npres any key to continue.............");
+	getch();
+	break;
+ case 14:
+	head=reverse(head);
+	break;
+ default:
+	printf("\n\n\nPlease entert the right choice......");
+	getch();
+	break;
+ }
+ screen(head);
+ }
+ void main()
+ {
+ clrscr();
+ node *head;
+ //int a,ch;
+ head=(node*)NULL;
+ screen(head);
+ getche();
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
